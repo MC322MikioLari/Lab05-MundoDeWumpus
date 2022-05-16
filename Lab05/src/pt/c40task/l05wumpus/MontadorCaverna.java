@@ -28,22 +28,22 @@ public class MontadorCaverna {
 	        		switch (cave[l][c]) {
 		        		case "P":{
 		        			h = new Heroi(pos);
-		        			this.caverna.ConectaComponente(pos, h);
+		        			this.caverna.ConectaComponente(pos[0], pos[1], h);
 		        			break;
 		        		}
 		        		case "W":{
 		        			w = new Wumpus(pos[0], pos[1]);
-		        			this.caverna.ConectaComponente(pos, w);
+		        			this.caverna.ConectaComponente(pos[0], pos[1], w);
 		        			break;
 		        		}
 		        		case "B":{
 		        			b = new Buraco();
-		        			this.caverna.ConectaComponente(pos, b);
+		        			this.caverna.ConectaComponente(pos[0], pos[1], b);
 		        			break;
 		        		}
 		        		case "O":{
 		        			o  = new Ouro();
-		        			this.caverna.ConectaComponente(pos, o);
+		        			this.caverna.ConectaComponente(pos[0], pos[1], o);
 		        			break;
 		        		}
 	        		}

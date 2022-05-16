@@ -4,15 +4,17 @@ public class Sala {
 	Heroi h;
 	Wumpus w;
 	Ouro o;
-	Buraco b;
+	Buraco B;
 	Brisa brisa;
 	Fedor f;
-	public Sala(Heroi h, Wumpus w) {
+	Boolean visitada;
+	public Sala() {
 		this.h = null;
 		this.w = null;
 		this.o = null;
-		this.b = null;
+		this.B = null;
 		this.brisa = null;
 		this.f = null;
+		this.visitada = visitada;
 	}
 }
