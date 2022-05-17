@@ -13,14 +13,9 @@ public class AppWumpus {
                                   String arquivoMovimentos) {
       Toolkit tk = Toolkit.start(arquivoCaverna, arquivoSaida, arquivoMovimentos);
       
-      String cave[][] = tk.retrieveCave();
-      
-      System.out.println("=== Caverna");
-      for (int l = 0; l < cave.length; l++) {
-         for (int c = 0; c < cave[l].length; c++)
-            System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
-         System.out.println();
-      }
+//      String cave[][] = tk.retrieveCave();
+      MontadorCaverna montadorCaverna = new MontadorCaverna(tk);
+      montadorCaverna.CavernaVerificacao(montadorCaverna.caveString);
       
       String movements = tk.retrieveMovements();
       System.out.println("=== Movimentos");
@@ -34,10 +29,10 @@ public class AppWumpus {
          {'p', '-', '-', '-'}
       };
       int score = -120;
-      char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediárias
+      char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediï¿½rias
       tk.writeBoard(partialCave, score, status);
 
-      System.out.println("=== Última Caverna");
+      System.out.println("=== ï¿½ltima Caverna");
       char finalCave[][] = {	
          {'#', '#', 'b', '-'},
          {'#', 'b', '#', 'f'},
@@ -45,7 +40,7 @@ public class AppWumpus {
          {'#', '-', '-', '-'}
       };
       score = -1210;
-      status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediárias
+      status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediï¿½rias
       tk.writeBoard(finalCave, score, status);
       
       tk.stop();
