@@ -15,6 +15,24 @@ public class Sala {
 		this.B = null;
 		this.brisa = null;
 		this.f = null;
-		this.visitada = visitada;
+		this.visitada = false;
+	}
+	public Wumpus temWumpus() {
+		return w;
+	}
+
+	public Ouro temOuroO() {
+		return o;
+	}
+
+	public Buraco temBuraco() {
+		return B;
+	}
+
+	public Boolean getVisitada() {
+		return visitada;
+	}
+	public void setVisitada() {
+		this.visitada = true;
 	}
 }
