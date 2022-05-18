@@ -1,18 +1,16 @@
 package pt.c40task.l05wumpus;
+
 /*
-
-Herï¿½i: ï¿½Pï¿½
-Wumpus: ï¿½Wï¿½
-Buraco: ï¿½Bï¿½
-Ouro: ï¿½Oï¿½
-Fedor: ï¿½fï¿½
-Brisa: ï¿½bï¿½
-
+Herói: “P”
+Wumpus: “W”
+Buraco: “B”
+Ouro: “O”
+Fedor: “f”
+Brisa: “b”
 */
 
 public class MontadorCaverna {
-	Caverna caverna = new Caverna();
-	String caveString[][];
+	Caverna caverna;
 	Heroi h;
 	Wumpus w;
 	Ouro o;
@@ -20,24 +18,15 @@ public class MontadorCaverna {
 	int pos[] = new int[2];
 	int nHeroi, nWumpus, nBuraco, nOuro;
 	
-	public MontadorCaverna(Toolkit tk) {
-	    caveString = tk.retrieveCave();
-	      
-		System.out.println("=== Caverna");
-		for (int l = 0; l < caveString.length; l++) {
-		   for (int c = 0; c < caveString[l].length; c++)
-		      System.out.print(caveString[l][c] + ((c < caveString[l].length-1) ? ", " : ""));
-		   System.out.println();
-		}
-  
-		for (int l = 0; l < caveString.length; l++) {
-	        for (int c = 0; c < caveString[l].length; c++) {
-	        	if (c != 2)
-	        		pos[c] = Integer.parseInt(caveString[l][c]) - 1;
+	public MontadorCaverna(String[][] cave) {
+		for (int l = 0; l < cave.length; l++) {
+	        for (int c = 0; c < cave[l].length; c++) {
+	        	if (c != 3)
+	        		pos[c] = Integer.parseInt(cave[l][c]);
 	        	else {
-	        		switch (caveString[l][c]) {
+	        		switch (cave[l][c]) {
 		        		case "P":{
-		        			h = new Heroi(pos);
+		        			h = new Heroi(pos[0], pos[1]);
 		        			this.caverna.ConectaComponente(pos[0], pos[1], h);
 		        			break;
 		        		}
@@ -62,7 +51,7 @@ public class MontadorCaverna {
 		}
 	}
 	
-	public boolean CavernaVerificacao(String[][] cave) {
+	public boolean CavernaVerificaçao(String[][] cave) {
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (cave[l][c].equals("P"))

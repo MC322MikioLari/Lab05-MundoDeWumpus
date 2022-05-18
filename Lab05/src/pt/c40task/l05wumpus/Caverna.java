@@ -59,6 +59,11 @@ public class Caverna {
 			return false;
 		return true;
 	}
+	
+	public void movimento(int i, int j) {
+		cave[i][j].setVisitada();
+	}
+	
 	public void retornaSaida() {
 		String[][] saida;
 		saida = new String[4][4];
