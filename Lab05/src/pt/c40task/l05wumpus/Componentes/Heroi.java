@@ -17,7 +17,6 @@ public class Heroi extends Componentes {
 		this.flechaEquipada = false;
 		this.vivo = true;
 		this.ouroCapturado = false;
-		this.nome = "";
 		this.status = 'P';
 	}
 	

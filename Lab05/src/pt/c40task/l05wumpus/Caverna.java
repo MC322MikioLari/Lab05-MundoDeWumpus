@@ -115,27 +115,3 @@ public class Caverna {
 		return saida;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

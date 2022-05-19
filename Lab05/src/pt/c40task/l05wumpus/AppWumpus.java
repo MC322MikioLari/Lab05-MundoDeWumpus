@@ -16,18 +16,17 @@ public class AppWumpus {
       Toolkit tk = Toolkit.start(arquivoCaverna, arquivoSaida, arquivoMovimentos);
       String cave[][] = tk.retrieveCave();
       
-      System.out.println("=== Caverna");
-      for (int l = 0; l < cave.length; l++) {
-         for (int c = 0; c < cave[l].length; c++)
-            System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
-         System.out.println();
-      }
+//      System.out.println("=== Caverna");
+//      for (int l = 0; l < cave.length; l++) {
+//         for (int c = 0; c < cave[l].length; c++)
+//            System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
+//         System.out.println();
+//      }
       
       MontadorCaverna montador = new MontadorCaverna(cave);
       montador.CavernaVerificacao (cave);
       Controle controle = new Controle(montador.getHeroi());
  
-      // Quando e informado um arquivo de movimentos, o nome do player e sempre: Alcebiades.
       
       if (arquivoMovimentos == null) {
           try (Scanner keyboard = new Scanner(System.in)) {

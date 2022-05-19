@@ -1,6 +1,6 @@
 package pt.c40task.l05wumpus;
 
-import pt.c40task.l05wumpus.Componentes.Heroi;
+import pt.c40task.l05wumpus.Componentes.*;
 
 // Uma Classe de Controle do Jogo. Essa classe deve controlar os movimentos e pontuacao do jogo.
 
@@ -82,6 +82,7 @@ public class Controle {
 		else if (comando == 'q') {
 			message = "Volte sempre !";
 		}
+		else System.out.println("Erro: comando nao existente.");
 		
 		if (status == 'W') score += 1000;
 		if (status == 'L') score -= 1000;
