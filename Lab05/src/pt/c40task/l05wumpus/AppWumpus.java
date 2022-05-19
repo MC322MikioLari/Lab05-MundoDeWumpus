@@ -31,7 +31,7 @@ public class AppWumpus {
       if (arquivoMovimentos == null) {
           try (Scanner keyboard = new Scanner(System.in)) {
 			System.out.println("Nome do player: ");
-			  controle.setPlayerName(keyboard.nextLine());
+			  controle.getHeroi().setNome(keyboard.nextLine());
 			  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
 					  controle.getHeroi().getNome(), controle.getScore(), controle.getMessage());			  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 			  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
@@ -41,8 +41,6 @@ public class AppWumpus {
 			  while(controle.getStatus() == 'P') {
 				  if (controle.comandoValido(comando)) {    
 					  controle.executa(comando);
-					  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
-							  controle.getHeroi().getNome(), controle.getScore(), controle.getMessage());
 					  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 					  }
 			  }
@@ -53,7 +51,7 @@ public class AppWumpus {
       }
       else if (arquivoMovimentos != null) {
           String movements = tk.retrieveMovements();
-    	  controle.setPlayerName("Alcebiades");	    
+          controle.getHeroi().setNome("Alcebiades");	    
     	  
     	  while (controle.getStatus() == 'P') {
     		  int i = 0;
@@ -61,8 +59,6 @@ public class AppWumpus {
 			  if (controle.comandoValido(comando)) {
 				  controle.executa(comando);
 			  }
-			  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
-					  controle.getHeroi().getNome(), controle.getScore(), controle.getMessage());
     		  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 			  i++;
     	  }

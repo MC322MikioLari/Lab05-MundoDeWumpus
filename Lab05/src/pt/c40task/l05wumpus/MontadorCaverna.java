@@ -8,22 +8,17 @@ Fedor: “f”
 Brisa: “b”
 */
 
-import pt.c40task.l05wumpus.Componentes.Buraco;
-import pt.c40task.l05wumpus.Componentes.Heroi;
-import pt.c40task.l05wumpus.Componentes.Ouro;
-import pt.c40task.l05wumpus.Componentes.Wumpus;
+import pt.c40task.l05wumpus.Componentes.*;
+
 
 public class MontadorCaverna {
 	private Caverna caverna;
-	private Heroi h;
-	private Wumpus w;
-	private Ouro o;
-	private Buraco b;
 	int pos[] = new int[2];
 	int nHeroi, nWumpus, nBuraco, nOuro;
 	
 	public MontadorCaverna(String[][] cave) {
 		caverna = new Caverna();
+		Componente comp;
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)

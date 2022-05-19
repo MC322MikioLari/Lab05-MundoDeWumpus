@@ -11,7 +11,7 @@ public class Sala {
 	Brisa brisa;
 	Fedor f;
 	Boolean visitada;
-	Componentes componente;
+	Componente componente;
 	public Sala() {
 		this.h = null;
 		this.w = null;
@@ -21,7 +21,7 @@ public class Sala {
 		this.f = null;
 		this.visitada = false;
 	}
-	public void conectaComponente(Componentes componente) {
+	public void conectaComponente(Componente componente) {
 		this.componente = componente;
 	}
 	public Wumpus temWumpus() {

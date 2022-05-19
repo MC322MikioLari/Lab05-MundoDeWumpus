@@ -3,16 +3,15 @@ import java.util.Random;
 
 import pt.c40task.l05wumpus.Caverna;
 
-public class Heroi extends Componentes {
+public class Heroi extends Componente {
 	private int i, j;
 	boolean flecha, vivo, flechaEquipada, ouroCapturado;
 	String nome;
 	Caverna caverna;
 	char status;
 	
-	public Heroi(int i, int j) {
-		this.i = i;
-		this.j = j;
+	public Heroi(int i, int j, Caverna caverna) {
+		super('P', 3, i, j, caverna);
 		this.flecha = true;
 		this.flechaEquipada = false;
 		this.vivo = true;
@@ -34,18 +33,7 @@ public class Heroi extends Componentes {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getI() {
-		return i;
-	}
-	public void setI(int i) {
-		this.i = i;
-	}
-	public int getJ() {
-		return j;
-	}
-	public void setJ(int j) {
-		this.j = j;
-	}	
+
 	
 	public boolean isFlecha() {
 		return flecha;
@@ -85,7 +73,8 @@ public class Heroi extends Componentes {
 	a ->  Herói movimenta para a sala a esquerda;
 	k -> Herói equipa a flecha;
 	c -> Herói captura o ouro;
-	q -> O usuário sai do jogo.*/
+	q -> O usuário sai do jogo.
+	*/
 	
 	public char Movimento(char movimento) {
 		switch (movimento) {
