@@ -80,43 +80,33 @@ public class Caverna {
 			return false;
 		return true;
 	}
-	public String[][] retornaSaida() {
-		String[][] saida;
-		saida = new String[4][4];
+	public char[][] retornaSaida() {
+		char[][] saida;
+		saida = new char[4][4];
 		for (int i = 0; i < cave.length; i++) {
 	        for (int j = 0; j < cave[i].length; j++) {
 	        	if (cave[i][j].o != null)
-	        		saida[i][j] = "O";
+	        		saida[i][j] = 'O';
 	        	else if (cave[i][j].w != null)
-	        		saida[i][j] = "W";
+	        		saida[i][j] = 'W';
 	        	else if (cave[i][j].B != null)
-	        		saida[i][j] = "B";
+	        		saida[i][j] = 'B';
 	        	else if (cave[i][j].h != null)
-	        		saida[i][j] = "P";
+	        		saida[i][j] = 'P';
 	        	else if (cave[i][j].f != null)
-	        		saida[i][j] = "f";
+	        		saida[i][j] = 'f';
 	        	else if (cave[i][j].brisa != null)
-	        		saida[i][j] = "b";
+	        		saida[i][j] = 'b';
 	        	else {
 	        		if (cave[i][j].visitada == true)
-	        			saida[i][j] = "#";
+	        			saida[i][j] = '#';
 	        		else
-	        			saida[i][j] = "-";
+	        			saida[i][j] = '-';
 	        	}
 	        }
 		}
 		return saida;
 	}
-	public void imprimeCaverna(String[][] saida) {
-		for(int i = 0; i < 4; i++) {
-	    	  for(int j = 0; j < 4; j++) {
-	    		  System.out.print(saida[i][j] + " ");
-	    	  }
-	    	  System.out.println();
-		}
-		
-	}
-
 }
 
 

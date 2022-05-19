@@ -1,5 +1,4 @@
 package pt.c40task.l05wumpus;
-
 /*
 Herói: “P”
 Wumpus: “W”
@@ -51,7 +50,7 @@ public class MontadorCaverna {
 		}
 	}
 	
-	public boolean CavernaVerificaçao(String[][] cave) {
+	public void CavernaVerificacao(String[][] cave) {
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (cave[l][c].equals("P"))
@@ -64,9 +63,10 @@ public class MontadorCaverna {
 		        		nOuro ++;
 	        	}
 	        }
-		if (nBuraco == 3 || nBuraco == 2 && nWumpus == 1 && nHeroi == 1 && nOuro == 1)
-			return true;
-		return false;
+		if (nBuraco == 3 || nBuraco == 2 && nWumpus == 1 && nHeroi == 1 && nOuro == 1 != true) {
+			PrintUtils.displayMessage("Caverna invalida");
+			System.exit(1);
+		}
 	}
 	
 }

@@ -1,4 +1,6 @@
 package pt.c40task.l05wumpus;
+import java.util.Scanner;
+
 
 public class AppWumpus {
 
@@ -12,7 +14,6 @@ public class AppWumpus {
    public static void executaJogo(String arquivoCaverna, String arquivoSaida,
                                   String arquivoMovimentos) {
       Toolkit tk = Toolkit.start(arquivoCaverna, arquivoSaida, arquivoMovimentos);
-      
       String cave[][] = tk.retrieveCave();
       
       System.out.println("=== Caverna");
@@ -22,31 +23,68 @@ public class AppWumpus {
          System.out.println();
       }
       
-      String movements = tk.retrieveMovements();
-      System.out.println("=== Movimentos");
-      System.out.println(movements);
+      Controle controle = new Controle();
+      MontadorCaverna montador = new MontadorCaverna(cave);
+      montador.CavernaVerificacao (cave); 
+      // Quando e informado um arquivo de movimentos, o nome do player e sempre: Alcebiades.
       
-      System.out.println("=== Caverna Intermediaria");
-      char partialCave[][] = {
-         {'#', '#', 'b', '-'},
-         {'#', 'b', '-', '-'},
-         {'b', '-', '-', '-'},
-         {'p', '-', '-', '-'}
-      };
-      int score = -120;
-      char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediárias
-      tk.writeBoard(partialCave, score, status);
+      
+      if (arquivoMovimentos == null) {
+          Scanner keyboard = new Scanner(System.in);
 
-      System.out.println("=== Última Caverna");
-      char finalCave[][] = {	
-         {'#', '#', 'b', '-'},
-         {'#', 'b', '#', 'f'},
-         {'b', '-', '-', 'w'},
-         {'#', '-', '-', '-'}
-      };
-      score = -1210;
-      status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediárias
-      tk.writeBoard(finalCave, score, status);
+    	  System.out.println("Nome do player: ");
+    	  controle.setPlayerName(keyboard.nextLine());
+    	  PrintUtils.caveState(controle.getHeroi().getCaverna().retornaSaida());
+		  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.status);
+		  
+		  char comando = keyboard.nextLine().charAt(0);
+		  while(controle.getStatus() == 'p') {
+			  if (comando != 'q' && controle.comandoValido(comando)) {    
+				  controle.executa(comando);
+			  }
+		  }
+      }
+      else if (arquivoMovimentos != null) {
+          String movements = tk.retrieveMovements();
+    	  controle.setPlayerName("Alcebiades");	    
+    	  
+    	  while (controle.getStatus() == 'p') {
+    		  int i = 0;
+    		  char comando = movements.charAt(i);
+			  if (controle.comandoValido(comando)) {
+				  controle.executa(comando);
+			  }
+			  i++;
+    	  }
+      }
+      
+      
+      
+//      String movements = tk.retrieveMovements();
+//      System.out.println("=== Movimentos");
+//      System.out.println(movements);
+//      
+//      System.out.println("=== Caverna Intermediaria");
+//      char partialCave[][] = {
+//         {'#', '#', 'b', '-'},
+//         {'#', 'b', '-', '-'},
+//         {'b', '-', '-', '-'},
+//         {'p', '-', '-', '-'}
+//      };
+//      int score = -120;
+//      char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediárias
+//      tk.writeBoard(partialCave, score, status);
+//
+//      System.out.println("=== Última Caverna");
+//      char finalCave[][] = {	
+//         {'#', '#', 'b', '-'},
+//         {'#', 'b', '#', 'f'},
+//         {'b', '-', '-', 'w'},
+//         {'#', '-', '-', '-'}
+//      };
+//      score = -1210;
+//      status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x'  intermediárias
+//      tk.writeBoard(finalCave, score, status);
       
       tk.stop();
    }

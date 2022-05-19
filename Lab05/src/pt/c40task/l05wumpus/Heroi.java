@@ -5,6 +5,8 @@ public class Heroi extends Componentes {
 	private int i, j, score;
 	boolean flecha, vivo, flechaEquipada, ouroCapturado;
 	String nome;
+	Caverna caverna;
+	
 	public Heroi(int i, int j) {
 		this.i = i;
 		this.j = j;
@@ -15,6 +17,15 @@ public class Heroi extends Componentes {
 		this.score = 0;
 		this.nome = "";
 	}
+	
+	
+	public Caverna getCaverna() {
+		return caverna;
+	}
+	public void setCaverna(Caverna caverna) {
+		this.caverna = caverna;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
