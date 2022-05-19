@@ -30,19 +30,22 @@ public class AppWumpus {
       
       
       if (arquivoMovimentos == null) {
-          Scanner keyboard = new Scanner(System.in);
-
-    	  System.out.println("Nome do player: ");
-    	  controle.setPlayerName(keyboard.nextLine());
-    	  PrintUtils.caveState(controle.getHeroi().getCaverna().retornaSaida());
-		  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.status);
-		  
-		  char comando = keyboard.nextLine().charAt(0);
-		  while(controle.getStatus() == 'p') {
-			  if (comando != 'q' && controle.comandoValido(comando)) {    
-				  controle.executa(comando);
+          try (Scanner keyboard = new Scanner(System.in)) {
+			System.out.println("Nome do player: ");
+			  controle.setPlayerName(keyboard.nextLine());
+			  PrintUtils.caveState(controle.getHeroi().getCaverna().retornaSaida());
+			  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
+			  
+			  char comando = keyboard.nextLine().charAt(0);
+			  while(controle.getStatus() == 'p') {
+				  if (comando != 'q' && controle.comandoValido(comando)) {    
+					  controle.executa(comando);
+					  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
+					  }
 			  }
-		  }
+		} catch (Exception e) {
+			System.out.println("Ocorreu um erro inesperado na leitura do teclado");
+		}
       }
       else if (arquivoMovimentos != null) {
           String movements = tk.retrieveMovements();
@@ -54,6 +57,7 @@ public class AppWumpus {
 			  if (controle.comandoValido(comando)) {
 				  controle.executa(comando);
 			  }
+    		  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 			  i++;
     	  }
       }

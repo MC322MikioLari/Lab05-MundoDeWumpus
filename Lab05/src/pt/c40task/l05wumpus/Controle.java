@@ -15,23 +15,6 @@ public class Controle {
 	}
 	
 	
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
-	}
-
-	public void setHeroi(Heroi heroi) {
-		this.heroi = heroi;
-	}
-
-	public void setStatus(char status) {
-		this.status = status;
-	}
-	
-	public void setScore(int score) {
-		this.score = score;
-	}
-	
-	
 	public Heroi getHeroi() {
 		return heroi;
 	}
@@ -46,6 +29,23 @@ public class Controle {
 
 	public String getPlayerName() {
 		return playerName;
+	}
+	
+	
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public void setHeroi(Heroi heroi) {
+		this.heroi = heroi;
+	}
+
+	public void setStatus(char status) {
+		this.status = status;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 	
