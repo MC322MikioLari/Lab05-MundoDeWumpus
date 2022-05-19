@@ -13,16 +13,15 @@ Brisa: 'b'
 
 
 public class MontadorCaverna {
-	private Caverna caverna;
-	private Heroi h;
-	private Wumpus w;
-	private Ouro o;
-	private Buraco b;
+	Caverna caverna;
+	Heroi h;
+	Wumpus w;
+	Ouro o;
+	Buraco b;
 	int pos[] = new int[2];
 	int nHeroi, nWumpus, nBuraco, nOuro;
 	
 	public MontadorCaverna(String[][] cave) {
-		caverna = new Caverna();
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)
@@ -55,7 +54,7 @@ public class MontadorCaverna {
 		}
 	}
 	
-	public void CavernaVerificacao(String[][] cave) {
+	public boolean CavernaVerifica�ao(String[][] cave) {
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (cave[l][c].equals("P"))
@@ -74,7 +73,6 @@ public class MontadorCaverna {
 			System.exit(1);
 		}
 	}
-
 	public Caverna getCaverna() {
 		return caverna;
 	}

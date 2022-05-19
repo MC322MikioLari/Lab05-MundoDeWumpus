@@ -1,7 +1,6 @@
 package pt.c40task.l05wumpus;
 import java.util.Scanner;
 
-
 public class AppWumpus {
 
    public static void main(String[] args) {
