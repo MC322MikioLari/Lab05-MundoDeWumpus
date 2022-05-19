@@ -8,4 +8,8 @@
 # Curso
 * 34 - Engenharia da Computação
 * 42 - Ciência da Computação
-![alt text](https://user-images.githubusercontent.com/82288999/169311218-109b5ea6-c47a-4193-8f44-72855f4969fe.png)
+
+
+
+![alt text]![2022-05-19 (6)](https://user-images.githubusercontent.com/82288999/169311729-59d55bfb-362a-48dd-ab0a-b7d76c0d0f95.png)
+
