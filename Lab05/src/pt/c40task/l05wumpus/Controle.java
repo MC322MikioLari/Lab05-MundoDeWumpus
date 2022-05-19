@@ -1,5 +1,7 @@
 package pt.c40task.l05wumpus;
 
+import pt.c40task.l05wumpus.Componentes.Heroi;
+
 // Uma Classe de Controle do Jogo. Essa classe deve controlar os movimentos e pontuacao do jogo.
 
 public class Controle {

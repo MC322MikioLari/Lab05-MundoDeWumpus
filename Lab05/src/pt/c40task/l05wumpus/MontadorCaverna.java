@@ -8,6 +8,11 @@ Fedor: “f”
 Brisa: “b”
 */
 
+import pt.c40task.l05wumpus.Componentes.Buraco;
+import pt.c40task.l05wumpus.Componentes.Heroi;
+import pt.c40task.l05wumpus.Componentes.Ouro;
+import pt.c40task.l05wumpus.Componentes.Wumpus;
+
 public class MontadorCaverna {
 	private Caverna caverna;
 	private Heroi h;

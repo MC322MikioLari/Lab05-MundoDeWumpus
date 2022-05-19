@@ -39,7 +39,7 @@ public class AppWumpus {
 
 			  char comando = keyboard.nextLine().charAt(0);
 			  comando = Character.toLowerCase(comando);
-			  while(controle.getStatus() == 'p') {
+			  while(controle.getStatus() == 'P') {
 				  if (controle.comandoValido(comando)) {    
 					  controle.executa(comando);
 					  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
@@ -56,7 +56,7 @@ public class AppWumpus {
           String movements = tk.retrieveMovements();
     	  controle.setPlayerName("Alcebiades");	    
     	  
-    	  while (controle.getStatus() == 'p') {
+    	  while (controle.getStatus() == 'P') {
     		  int i = 0;
     		  char comando = movements.charAt(i);
 			  if (controle.comandoValido(comando)) {
