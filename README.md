@@ -21,5 +21,7 @@
 
 * Outra escolha feita pelo grupo foi agrupar todos os componentes numa pasta, assim o critério número 6  é atendido novamente, pois caso haja a adição de mais componentes, agrupá-los numa página deixa o código mais organizado e escalável
 
+* Foi criada um classe chamada printUtils de modo a tornar a arquitetura fácil de ser expandida, assim atendendo ao critério 6, isso porque ao criá-la, delegamos as tarefas de impressão para uma única classe, a qual será responsável por essa tarefa específica, tornando o código mais organizado e escalável
 
+![2022-05-19 (12)](https://user-images.githubusercontent.com/82288999/169321167-0ec93d2b-852d-49bd-a7a3-0061bdb1bcfa.png)
 
