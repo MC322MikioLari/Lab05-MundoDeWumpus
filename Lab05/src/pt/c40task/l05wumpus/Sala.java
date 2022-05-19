@@ -20,10 +20,21 @@ public class Sala {
 		this.componentes.add(componente);
 	}
 	
-	public Componente getComponente() {
-		for (int i = 0; i < componentes.size(); i++) {
-			if (componentes.get(i).getID() == 'B') return ;
+	public char getRepresentacao() {
+		char representacao = '-';
+
+		int max = 0;
+		if (componentes.size() > 0) {
+			for (int i = 0; i < componentes.size(); i++) {
+				if (componentes.get(i).getPrioridade() > max){
+					max = componentes.get(i).getPrioridade();
+					representacao = componentes.get(i).getID();
+				}
+			}
 		}
+		else if (this.visitada == true) representacao = '*';
+		
+		return representacao;
 	}
 
 	public Boolean getVisitada() {

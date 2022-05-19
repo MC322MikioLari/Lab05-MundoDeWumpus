@@ -1,19 +1,20 @@
 package pt.c40task.l05wumpus.Componentes;
 
+import pt.c40task.l05wumpus.Caverna;
+
 public class Wumpus extends Componente{
-	int i, j;
-	boolean vivo;
-	public Wumpus(int i, int j) {
-		this.i = i;
-		this.j = j;
+	private boolean vivo;
+	
+	public Wumpus(int i, int j, Caverna caverna) {
+		super('W', 4, i, j, caverna);
 		this.vivo = true;
 	}
 	
 	public void criaFedor(int i, int j) {
-		cave.ConectaComponente(i-1, j, new Fedor());
-		cave.ConectaComponente(i+1, j, new Fedor());
-		cave.ConectaComponente(i, j-1, new Fedor());
-		cave.ConectaComponente(i-1, j+1, new Fedor());
+		cave.ConectaComponente(i-1, j, new Fedor(i-1, j, cave));
+		cave.ConectaComponente(i+1, j, new Fedor(i+1, j, cave));
+		cave.ConectaComponente(i, j-1, new Fedor(i, j-1, cave));
+		cave.ConectaComponente(i, j+1, new Fedor(i, j+1, cave));
 	}
 	
 	public boolean isVivo() {

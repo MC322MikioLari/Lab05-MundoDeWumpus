@@ -55,6 +55,11 @@ public class Componente {
 		this.prioridade = prioridade;
 	}
 
+	
+	public Caverna getCaverna() {
+		return cave;
+	}
+
 	public void conectaCaverna(Caverna cave) {
 		this.cave = cave;
 	}
