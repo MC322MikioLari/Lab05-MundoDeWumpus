@@ -1,20 +1,20 @@
-package pt.c40task.l05wumpus;
+package pt.c40task.l05wumpus.Componentes;
 import java.util.Random;
 
-public class Heroi extends Componentes {
-	private int i, j, score;
+import pt.c40task.l05wumpus.Caverna;
+
+public class Heroi extends Componente {
+	private int i, j;
 	boolean flecha, vivo, flechaEquipada, ouroCapturado;
 	String nome;
 	char status;
-	public Heroi(int i, int j) {
-		this.i = i;
-		this.j = j;
+	
+	public Heroi(int i, int j, Caverna caverna) {
+		super('P', 3, i, j, caverna);
 		this.flecha = true;
 		this.flechaEquipada = false;
 		this.vivo = true;
 		this.ouroCapturado = false;
-		this.score = 0;
-		this.nome = "";
 		this.status = 'P';
 	}
 	public String getNome() {
@@ -23,24 +23,8 @@ public class Heroi extends Componentes {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getI() {
-		return i;
-	}
-	public void setI(int i) {
-		this.i = i;
-	}
-	public int getJ() {
-		return j;
-	}
-	public void setJ(int j) {
-		this.j = j;
-	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
+
+	
 	public boolean isFlecha() {
 		return flecha;
 	}
@@ -73,18 +57,19 @@ public class Heroi extends Componentes {
 		return false;
 	}
 	/*
-	w -> Herói movimenta para a sala acima;
-	s ->  Herói movimenta para a sala abaixo;
-	d ->  Herói movimenta para a sala a direita;
-	a ->  Herói movimenta para a sala a esquerda;
-	k -> Herói equipa a flecha;
-	c -> Herói captura o ouro;
-	q -> O usuário sai do jogo.*/
+	w -> Heroi movimenta para a sala acima;
+	s ->  Heroi movimenta para a sala abaixo;
+	d ->  Heroi movimenta para a sala a direita;
+	a ->  Heroi movimenta para a sala a esquerda;
+	k -> Heroi equipa a flecha;
+	c -> Heroi captura o ouro;
+	q -> O usuario sai do jogo.
+	*/
 	
 	public void Movimento(String movimento) {
 		for (int i = 0; i < movimento.length(); i++) {
-			String ação = movimento.substring(i);
-			switch (ação) {
+			String acao = movimento.substring(i);
+			switch (acao) {
     			case "w":{
     				this.setI(i-1);
     			}

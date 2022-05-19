@@ -1,24 +1,25 @@
 package pt.c40task.l05wumpus;
 
 /*
-Herói: “P”
-Wumpus: “W”
-Buraco: “B”
-Ouro: “O”
-Fedor: “f”
-Brisa: “b”
+Herï¿½i: ï¿½Pï¿½
+Wumpus: ï¿½Wï¿½
+Buraco: ï¿½Bï¿½
+Ouro: ï¿½Oï¿½
+Fedor: ï¿½fï¿½
+Brisa: ï¿½bï¿½
 */
 
+import pt.c40task.l05wumpus.Componentes.*;
+
+
 public class MontadorCaverna {
-	Caverna caverna;
-	Heroi h;
-	Wumpus w;
-	Ouro o;
-	Buraco b;
+	private Caverna caverna;
 	int pos[] = new int[2];
 	int nHeroi, nWumpus, nBuraco, nOuro;
 	
 	public MontadorCaverna(String[][] cave) {
+		caverna = new Caverna();
+		Componente comp;
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)
@@ -51,7 +52,7 @@ public class MontadorCaverna {
 		}
 	}
 	
-	public boolean CavernaVerificaçao(String[][] cave) {
+	public boolean CavernaVerificaï¿½ao(String[][] cave) {
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (cave[l][c].equals("P"))

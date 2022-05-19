@@ -1,6 +1,6 @@
 package pt.c40task.l05wumpus;
 
-public class Wumpus extends Componentes{
+public class Wumpus extends Componente{
 	int i, j;
 	boolean vivo;
 	public Wumpus(int i, int j) {

@@ -44,13 +44,13 @@ public class Caverna {
 	}
 	
 	/*
-	w -> Herói movimenta para a sala acima;
-	s ->  Herói movimenta para a sala abaixo;
-	d ->  Herói movimenta para a sala a direita;
-	a ->  Herói movimenta para a sala a esquerda;
-	k -> Herói equipa a flecha;
-	c -> Herói captura o ouro;
-	q -> O usuário sai do jogo.*/
+	w -> Heroi movimenta para a sala acima;
+	s ->  Heroi movimenta para a sala abaixo;
+	d ->  Heroi movimenta para a sala a direita;
+	a ->  Heroi movimenta para a sala a esquerda;
+	k -> Heroi equipa a flecha;
+	c -> Heroi captura o ouro;
+	q -> O Heroi sai do jogo.*/
 	
 	public Boolean VerificaMovimento(int i, int j, char movimento) {
 		if (i < 0|| i >= 4 || j < 0 || j >= 4 )
@@ -107,38 +107,4 @@ public class Caverna {
 		}
 		return saida;
 	}
-	public void imprimeCaverna(String[][] saida) {
-		for(int i = 0; i < 4; i++) {
-	    	  for(int j = 0; j < 4; j++) {
-	    		  System.out.print(saida[i][j] + " ");
-	    	  }
-	    	  System.out.println();
-		}
-		
-	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

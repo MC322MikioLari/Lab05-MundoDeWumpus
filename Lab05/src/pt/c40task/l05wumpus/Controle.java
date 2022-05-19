@@ -6,7 +6,6 @@ import pt.c40task.l05wumpus.Componentes.*;
 
 public class Controle {
 	private int score;
-	private String playerName;
 	private char status;
 	private Heroi heroi;
 	private String message;
@@ -30,21 +29,12 @@ public class Controle {
 	public char getStatus() {
 		return status;
 	}
-
-	public String getPlayerName() {
-		return playerName;
-	}
 	
 	public String getMessage() {
 		return message;
 	}
 
 	
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
-	}
-
-
 	public void setStatus(char status) {
 		this.status = status;
 	}
@@ -86,7 +76,8 @@ public class Controle {
 		
 		if (status == 'W') score += 1000;
 		if (status == 'L') score -= 1000;
-		
+		PrintUtils.gameSate(getHeroi().getCaverna().retornaSaida(),
+				  getHeroi().getNome(), getScore(), getMessage());
 	}
 
 }
