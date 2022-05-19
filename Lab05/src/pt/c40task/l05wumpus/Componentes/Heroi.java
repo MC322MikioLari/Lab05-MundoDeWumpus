@@ -4,10 +4,8 @@ import java.util.Random;
 import pt.c40task.l05wumpus.Caverna;
 
 public class Heroi extends Componente {
-	private int i, j;
 	boolean flecha, vivo, flechaEquipada, ouroCapturado;
 	String nome;
-	Caverna caverna;
 	char status;
 	
 	public Heroi(int i, int j, Caverna caverna) {
@@ -20,13 +18,6 @@ public class Heroi extends Componente {
 	}
 	
 	
-	public Caverna getCaverna() {
-		return caverna;
-	}
-	public void setCaverna(Caverna caverna) {
-		this.caverna = caverna;
-	}
-	
 	public String getNome() {
 		return nome;
 	}
@@ -38,21 +29,24 @@ public class Heroi extends Componente {
 	public boolean isFlecha() {
 		return flecha;
 	}
+	public void sacarFlecha() {
+		this.flechaEquipada = true;
+	}
 	public void perdeuFlecha() {
 		this.flecha = false;
 	}
+	
 	public boolean isVivo() {
 		return vivo;
 	}
 	public void morreu() {
 		this.vivo = false;
-	}
-	public void sacarFlecha() {
-		this.flechaEquipada = true;
-	}
+	}	
+
 	public void capturouOuro() {
 		this.ouroCapturado = true;
 	}
+	
 	public boolean matarWumpus() {
 		if (this.flechaEquipada == true) {
 			this.perdeuFlecha();
