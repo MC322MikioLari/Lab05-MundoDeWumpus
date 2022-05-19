@@ -1,13 +1,5 @@
 package pt.c40task.l05wumpus;
 
-import pt.c40task.l05wumpus.Componentes.Brisa;
-import pt.c40task.l05wumpus.Componentes.Buraco;
-import pt.c40task.l05wumpus.Componentes.Componentes;
-import pt.c40task.l05wumpus.Componentes.Fedor;
-import pt.c40task.l05wumpus.Componentes.Heroi;
-import pt.c40task.l05wumpus.Componentes.Ouro;
-import pt.c40task.l05wumpus.Componentes.Wumpus;
-
 public class Sala {
 	Heroi h;
 	Wumpus w;
