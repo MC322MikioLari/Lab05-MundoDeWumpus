@@ -22,7 +22,7 @@ public class MontadorCaverna {
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)
-	        		pos[c] = Integer.parseInt(cave[l][c]);
+	        		pos[c] = Integer.parseInt(cave[l][c])-1;
 	        	else {
 	        		switch (cave[l][c]) {
 		        		case "P":{
@@ -64,9 +64,11 @@ public class MontadorCaverna {
 		        		nOuro ++;
 	        	}
 	        }
-		if (nBuraco == 3 || nBuraco == 2 && nWumpus == 1 && nHeroi == 1 && nOuro == 1)
-			return true;
-		return false;
+		if (nBuraco == 3 || nBuraco == 2 && nWumpus == 1 && nHeroi == 1 && nOuro == 1 != true) {
+			PrintUtils.displayMessage("Caverna invalida");
+			return false;
+		}
+		return true;
 	}
 	
 }

@@ -59,12 +59,28 @@ public class Caverna {
 			return false;
 		return true;
 	}
-	
-	public void movimento(int i, int j) {
+
+	public void MovimentoCav(int i, int j, int i_new, int j_new) {
 		cave[i][j].setVisitada();
+		cave[i][j].componente = cave[i_new][j_new].componente;
+		cave[i][j].componente = null;
 	}
-	
-	public void retornaSaida() {
+	public boolean existeOuro(int i, int j) {
+		if (cave[i][j].temOuro() == null)
+			return false;
+		return true;
+	}
+	public boolean existeWumpus(int i, int j) {
+		if (cave[i][j].temWumpus() == null)
+			return false;
+		return true;
+	}
+	public boolean existeBuraco(int i, int j) {
+		if (cave[i][j].temBuraco() == null)
+			return false;
+		return true;
+	}
+	public String[][] retornaSaida() {
 		String[][] saida;
 		saida = new String[4][4];
 		for (int i = 0; i < cave.length; i++) {
@@ -89,7 +105,18 @@ public class Caverna {
 	        	}
 	        }
 		}
+		return saida;
 	}
+	public void imprimeCaverna(String[][] saida) {
+		for(int i = 0; i < 4; i++) {
+	    	  for(int j = 0; j < 4; j++) {
+	    		  System.out.print(saida[i][j] + " ");
+	    	  }
+	    	  System.out.println();
+		}
+		
+	}
+
 }
 
 

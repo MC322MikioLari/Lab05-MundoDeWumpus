@@ -8,6 +8,7 @@ public class Sala {
 	Brisa brisa;
 	Fedor f;
 	Boolean visitada;
+	Componentes componente;
 	public Sala() {
 		this.h = null;
 		this.w = null;
@@ -17,11 +18,14 @@ public class Sala {
 		this.f = null;
 		this.visitada = false;
 	}
+	public void conectaComponente(Componentes componente) {
+		this.componente = componente;
+	}
 	public Wumpus temWumpus() {
 		return w;
 	}
 
-	public Ouro temOuroO() {
+	public Ouro temOuro() {
 		return o;
 	}
 
