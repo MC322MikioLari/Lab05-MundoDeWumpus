@@ -4,6 +4,7 @@ import java.util.Random;
 public class Heroi extends Componentes {
 	private int i, j, score;
 	boolean flecha, vivo, flechaEquipada, ouroCapturado;
+	String nome;
 	public Heroi(int i, int j) {
 		this.i = i;
 		this.j = j;
@@ -12,6 +13,13 @@ public class Heroi extends Componentes {
 		this.vivo = true;
 		this.ouroCapturado = false;
 		this.score = 0;
+		this.nome = "";
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public int getI() {
 		return i;
