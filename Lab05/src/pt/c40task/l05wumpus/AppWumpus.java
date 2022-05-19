@@ -38,8 +38,10 @@ public class AppWumpus {
 			  
 			  char comando = keyboard.nextLine().charAt(0);
 			  while(controle.getStatus() == 'p') {
-				  if (comando != 'q' && controle.comandoValido(comando)) {    
+				  if (controle.comandoValido(comando)) {    
 					  controle.executa(comando);
+					  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
+							  controle.getHeroi().getNome(), controle.getScore(), controle.getMessage());
 					  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 					  }
 			  }
@@ -57,6 +59,8 @@ public class AppWumpus {
 			  if (controle.comandoValido(comando)) {
 				  controle.executa(comando);
 			  }
+			  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
+					  controle.getHeroi().getNome(), controle.getScore(), controle.getMessage());
     		  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 			  i++;
     	  }

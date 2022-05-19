@@ -7,6 +7,7 @@ public class Controle {
 	private String playerName;
 	private char status;
 	private Heroi heroi;
+	private String message;
 		
 
 	public Controle() {
@@ -31,6 +32,10 @@ public class Controle {
 		return playerName;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+
 	
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
@@ -47,6 +52,10 @@ public class Controle {
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	
 	public boolean comandoValido(char comando) {
@@ -57,7 +66,12 @@ public class Controle {
 		else return false;
 	}
 	
+	public void fimDoJogo() {
+		
+	}
+	
 	public void executa(char comando) {
+		
 		
 	}
 
