@@ -1,6 +1,6 @@
 package pt.c40task.l05wumpus.Componentes;
 
-import pt.c40task.l05wumpus.Caverna;
+import pt.c40task.l05wumpus.*;
 
 public class Componente {
 	protected Caverna cave;

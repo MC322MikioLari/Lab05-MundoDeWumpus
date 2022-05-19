@@ -19,7 +19,6 @@ public class MontadorCaverna {
 	
 	public MontadorCaverna(String[][] cave) {
 		caverna = new Caverna();
-		Componente comp;
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)
@@ -27,22 +26,22 @@ public class MontadorCaverna {
 	        	else {
 	        		switch (cave[l][c]) {
 		        		case "P":{
-		        			h = new Heroi(pos[0], pos[1]);
+		        			Heroi h = new Heroi(pos[0], pos[1], caverna);
 		        			this.caverna.ConectaComponente(pos[0], pos[1], h);
 		        			break;
 		        		}
 		        		case "W":{
-		        			w = new Wumpus(pos[0], pos[1]);
+		        			Wumpus w = new Wumpus(pos[0], pos[1]);
 		        			this.caverna.ConectaComponente(pos[0], pos[1], w);
 		        			break;
 		        		}
 		        		case "B":{
-		        			b = new Buraco();
+		        			Buraco b = new Buraco(pos[0], pos[1], caverna);
 		        			this.caverna.ConectaComponente(pos[0], pos[1], b);
 		        			break;
 		        		}
 		        		case "O":{
-		        			o  = new Ouro();
+		        			Ouro o  = new Ouro(pos[0], pos[1]);
 		        			this.caverna.ConectaComponente(pos[0], pos[1], o);
 		        			break;
 		        		}

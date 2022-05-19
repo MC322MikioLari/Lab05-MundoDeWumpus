@@ -1,39 +1,29 @@
 package pt.c40task.l05wumpus;
 
+import java.util.ArrayList;
+
 import pt.c40task.l05wumpus.Componentes.*;
 
 
 public class Sala {
-	Heroi h;
-	Wumpus w;
-	Ouro o;
-	Buraco B;
-	Brisa brisa;
-	Fedor f;
-	Boolean visitada;
-	Componente componente;
+	private ArrayList<Componente> componentes;
+	private boolean visitada;
+	
+	
 	public Sala() {
-		this.h = null;
-		this.w = null;
-		this.o = null;
-		this.B = null;
-		this.brisa = null;
-		this.f = null;
+		this.componentes = new ArrayList<Componente>();
 		this.visitada = false;
 	}
+	
+	
 	public void conectaComponente(Componente componente) {
-		this.componente = componente;
+		this.componentes.add(componente);
 	}
-	public Wumpus temWumpus() {
-		return w;
-	}
-
-	public Ouro temOuro() {
-		return o;
-	}
-
-	public Buraco temBuraco() {
-		return B;
+	
+	public Componente getComponente() {
+		for (int i = 0; i < componentes.size(); i++) {
+			if (componentes.get(i).getID() == 'B') return ;
+		}
 	}
 
 	public Boolean getVisitada() {

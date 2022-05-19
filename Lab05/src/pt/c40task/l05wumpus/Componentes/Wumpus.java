@@ -8,6 +8,14 @@ public class Wumpus extends Componente{
 		this.j = j;
 		this.vivo = true;
 	}
+	
+	public void criaFedor(int i, int j) {
+		cave.ConectaComponente(i-1, j, new Fedor());
+		cave.ConectaComponente(i+1, j, new Fedor());
+		cave.ConectaComponente(i, j-1, new Fedor());
+		cave.ConectaComponente(i-1, j+1, new Fedor());
+	}
+	
 	public boolean isVivo() {
 		return vivo;
 	}

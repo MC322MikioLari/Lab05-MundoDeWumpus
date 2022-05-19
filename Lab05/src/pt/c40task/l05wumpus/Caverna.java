@@ -30,18 +30,6 @@ public class Caverna {
 		this.cave[i][j].f = f;
 	}
 	
-	public void criaFedor(int i, int j) {
-		ConectaComponente(i-1, j, new Fedor());
-		ConectaComponente(i+1, j, new Fedor());
-		ConectaComponente(i, j-1, new Fedor());
-		ConectaComponente(i-1, j+1, new Fedor());
-	}
-	public void criaBrisa(int i, int j) {
-		ConectaComponente(i-1, j, new Brisa());
-		ConectaComponente(i+1, j, new Brisa());
-		ConectaComponente(i, j-1, new Brisa());
-		ConectaComponente(i-1, j+1, new Brisa());
-	}
 	
 	/*
 	w -> Heroi movimenta para a sala acima;
@@ -60,10 +48,10 @@ public class Caverna {
 		return true;
 	}
 
-	public void MovimentoCav(int i, int j, int i_new, int j_new) {
+	public void MovimentoCave(int i, int j, int i_new, int j_new) {
 		cave[i][j].setVisitada();
-		cave[i][j].componente = cave[i_new][j_new].componente;
 		cave[i][j].componente = null;
+		cave[i][j].componente = cave[i_new][j_new].componente;
 	}
 	public boolean existeOuro(int i, int j) {
 		if (cave[i][j].temOuro() == null)
