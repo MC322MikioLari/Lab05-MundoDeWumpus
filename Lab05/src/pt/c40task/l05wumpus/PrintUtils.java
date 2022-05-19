@@ -17,7 +17,14 @@ public class PrintUtils {
 	}
 	
 	public static void displayMessage(String message) {
-		System.out.println(message);
+		if (message != null) System.out.println(message);
 	}
-	
+
+	public static void gameSate(char[][] caverna, String playerName, int score, String message) {
+		caveState(caverna);
+		displayName(playerName);
+		displayScore(score);
+		displayMessage(message);
+	}	
 }
+

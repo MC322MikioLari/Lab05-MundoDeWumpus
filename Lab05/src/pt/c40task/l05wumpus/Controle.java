@@ -1,5 +1,7 @@
 package pt.c40task.l05wumpus;
 
+import pt.c40task.l05wumpus.Componentes.Heroi;
+
 // Uma Classe de Controle do Jogo. Essa classe deve controlar os movimentos e pontuacao do jogo.
 
 public class Controle {
@@ -7,11 +9,13 @@ public class Controle {
 	private String playerName;
 	private char status;
 	private Heroi heroi;
+	private String message;
 		
 
-	public Controle() {
+	public Controle(Heroi heroi) {
 		score = 0;
 		status = 'P';		
+		this.heroi = heroi;
 	}
 	
 	
@@ -31,14 +35,15 @@ public class Controle {
 		return playerName;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+
 	
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
 
-	public void setHeroi(Heroi heroi) {
-		this.heroi = heroi;
-	}
 
 	public void setStatus(char status) {
 		this.status = status;
@@ -46,6 +51,10 @@ public class Controle {
 	
 	public void setScore(int score) {
 		this.score = score;
+	}
+	
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	
@@ -57,8 +66,27 @@ public class Controle {
 		else return false;
 	}
 	
+	
 	public void executa(char comando) {
+		if (comando == 'w' || comando == 'a'|| comando == 's' || comando == 'd') {
+			status = heroi.Movimento(comando);
+			score -= 15;			
+		}
+		else if (comando == 'k') {
+			heroi.sacarFlecha();
+			score -= 100;
+		}
+		else if (comando == 'c') {
+			heroi.capturouOuro();
+		}
+		else if (comando == 'q') {
+			message = "Volte sempre !";
+		}
+		
+		if (status == 'W') score += 1000;
+		if (status == 'L') score -= 1000;
 		
 	}
 
 }
+
