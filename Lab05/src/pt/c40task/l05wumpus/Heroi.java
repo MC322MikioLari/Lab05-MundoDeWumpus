@@ -2,10 +2,11 @@ package pt.c40task.l05wumpus;
 import java.util.Random;
 
 public class Heroi extends Componentes {
-	private int i, j, score;
+	private int i, j;
 	boolean flecha, vivo, flechaEquipada, ouroCapturado;
 	String nome;
 	Caverna caverna;
+	char status;
 	
 	public Heroi(int i, int j) {
 		this.i = i;
@@ -14,8 +15,8 @@ public class Heroi extends Componentes {
 		this.flechaEquipada = false;
 		this.vivo = true;
 		this.ouroCapturado = false;
-		this.score = 0;
 		this.nome = "";
+		this.status = 'P';
 	}
 	
 	
@@ -43,13 +44,8 @@ public class Heroi extends Componentes {
 	}
 	public void setJ(int j) {
 		this.j = j;
-	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
+	}	
+	
 	public boolean isFlecha() {
 		return flecha;
 	}
@@ -90,32 +86,21 @@ public class Heroi extends Componentes {
 	c -> Herói captura o ouro;
 	q -> O usuário sai do jogo.*/
 	
-	public void Movimento(String movimento) {
-		for (int i = 0; i < movimento.length(); i++) {
-			String ação = movimento.substring(i);
-			switch (ação) {
-    			case "w":{
-    				this.setI(i-1);
-    			}
-    			case "s":{
-    				this.setI(i+1);
-    			}
-    			case "d":{
-    				this.setJ(j+1);
-    			}
-    			case "a":{
-    				this.setJ(j-1);
-    			}
-    			case "k":{
-    				this.sacarFlecha();
-    			}
-    			case "c":{
-    				this.capturouOuro();
-    			}
-    			case "q":{
-    				
-    			}
-    		}
+	public char Movimento(char movimento) {
+		switch (movimento) {
+			case 'w':{
+				this.setI(i-1);
+			}
+			case 's':{
+				this.setI(i+1);
+			}
+			case 'd':{
+				this.setJ(j+1);
+			}
+			case 'a':{
+				this.setJ(j-1);
+			}	
 		}
+		return status;
 	}
 }

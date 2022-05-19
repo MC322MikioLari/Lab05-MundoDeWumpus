@@ -23,20 +23,22 @@ public class AppWumpus {
          System.out.println();
       }
       
-      Controle controle = new Controle();
       MontadorCaverna montador = new MontadorCaverna(cave);
-      montador.CavernaVerificacao (cave); 
+      montador.CavernaVerificacao (cave);
+      Controle controle = new Controle(montador.getHeroi());
+ 
       // Quando e informado um arquivo de movimentos, o nome do player e sempre: Alcebiades.
-      
       
       if (arquivoMovimentos == null) {
           try (Scanner keyboard = new Scanner(System.in)) {
 			System.out.println("Nome do player: ");
 			  controle.setPlayerName(keyboard.nextLine());
-			  PrintUtils.caveState(controle.getHeroi().getCaverna().retornaSaida());
+			  PrintUtils.gameSate(controle.getHeroi().getCaverna().retornaSaida(),
+					  controle.getHeroi().getNome(), controle.getScore(), controle.getMessage());			  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 			  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
-			  
+
 			  char comando = keyboard.nextLine().charAt(0);
+			  comando = Character.toLowerCase(comando);
 			  while(controle.getStatus() == 'p') {
 				  if (controle.comandoValido(comando)) {    
 					  controle.executa(comando);
@@ -45,9 +47,10 @@ public class AppWumpus {
 					  tk.writeBoard(controle.getHeroi().getCaverna().retornaSaida(), controle.getScore(), controle.getStatus());
 					  }
 			  }
+			  keyboard.close();
 		} catch (Exception e) {
 			System.out.println("Ocorreu um erro inesperado na leitura do teclado");
-		}
+			}
       }
       else if (arquivoMovimentos != null) {
           String movements = tk.retrieveMovements();

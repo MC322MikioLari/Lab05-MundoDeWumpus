@@ -9,15 +9,16 @@ Brisa: “b”
 */
 
 public class MontadorCaverna {
-	Caverna caverna;
-	Heroi h;
-	Wumpus w;
-	Ouro o;
-	Buraco b;
+	private Caverna caverna;
+	private Heroi h;
+	private Wumpus w;
+	private Ouro o;
+	private Buraco b;
 	int pos[] = new int[2];
 	int nHeroi, nWumpus, nBuraco, nOuro;
 	
 	public MontadorCaverna(String[][] cave) {
+		caverna = new Caverna();
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)
@@ -68,5 +69,14 @@ public class MontadorCaverna {
 			System.exit(1);
 		}
 	}
+
+	public Caverna getCaverna() {
+		return caverna;
+	}
+	
+	public Heroi getHeroi() {
+		return h;
+	}
+	
 	
 }

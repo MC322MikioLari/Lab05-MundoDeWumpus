@@ -10,9 +10,10 @@ public class Controle {
 	private String message;
 		
 
-	public Controle() {
+	public Controle(Heroi heroi) {
 		score = 0;
 		status = 'P';		
+		this.heroi = heroi;
 	}
 	
 	
@@ -41,9 +42,6 @@ public class Controle {
 		this.playerName = playerName;
 	}
 
-	public void setHeroi(Heroi heroi) {
-		this.heroi = heroi;
-	}
 
 	public void setStatus(char status) {
 		this.status = status;
@@ -66,12 +64,25 @@ public class Controle {
 		else return false;
 	}
 	
-	public void fimDoJogo() {
-		
-	}
 	
 	public void executa(char comando) {
+		if (comando == 'w' || comando == 'a'|| comando == 's' || comando == 'd') {
+			status = heroi.Movimento(comando);
+			score -= 15;			
+		}
+		else if (comando == 'k') {
+			heroi.sacarFlecha();
+			score -= 100;
+		}
+		else if (comando == 'c') {
+			heroi.capturouOuro();
+		}
+		else if (comando == 'q') {
+			message = "Volte sempre !";
+		}
 		
+		if (status == 'W') score += 1000;
+		if (status == 'L') score -= 1000;
 		
 	}
 
