@@ -1,5 +1,13 @@
 package pt.c40task.l05wumpus;
 
+import pt.c40task.l05wumpus.Componentes.Brisa;
+import pt.c40task.l05wumpus.Componentes.Buraco;
+import pt.c40task.l05wumpus.Componentes.Componentes;
+import pt.c40task.l05wumpus.Componentes.Fedor;
+import pt.c40task.l05wumpus.Componentes.Heroi;
+import pt.c40task.l05wumpus.Componentes.Ouro;
+import pt.c40task.l05wumpus.Componentes.Wumpus;
+
 public class Sala {
 	Heroi h;
 	Wumpus w;
@@ -8,6 +16,7 @@ public class Sala {
 	Brisa brisa;
 	Fedor f;
 	Boolean visitada;
+	Componentes componente;
 	public Sala() {
 		this.h = null;
 		this.w = null;
@@ -17,11 +26,14 @@ public class Sala {
 		this.f = null;
 		this.visitada = false;
 	}
+	public void conectaComponente(Componentes componente) {
+		this.componente = componente;
+	}
 	public Wumpus temWumpus() {
 		return w;
 	}
 
-	public Ouro temOuroO() {
+	public Ouro temOuro() {
 		return o;
 	}
 
