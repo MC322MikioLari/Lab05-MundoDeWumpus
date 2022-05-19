@@ -1,24 +1,29 @@
 package pt.c40task.l05wumpus;
-
 /*
-Herói: “P”
-Wumpus: “W”
-Buraco: “B”
-Ouro: “O”
-Fedor: “f”
-Brisa: “b”
+Herï¿½i: ï¿½Pï¿½
+Wumpus: ï¿½Wï¿½
+Buraco: ï¿½Bï¿½
+Ouro: ï¿½Oï¿½
+Fedor: ï¿½fï¿½
+Brisa: ï¿½bï¿½
 */
 
+import pt.c40task.l05wumpus.Componentes.Buraco;
+import pt.c40task.l05wumpus.Componentes.Heroi;
+import pt.c40task.l05wumpus.Componentes.Ouro;
+import pt.c40task.l05wumpus.Componentes.Wumpus;
+
 public class MontadorCaverna {
-	Caverna caverna;
-	Heroi h;
-	Wumpus w;
-	Ouro o;
-	Buraco b;
+	private Caverna caverna;
+	private Heroi h;
+	private Wumpus w;
+	private Ouro o;
+	private Buraco b;
 	int pos[] = new int[2];
 	int nHeroi, nWumpus, nBuraco, nOuro;
 	
 	public MontadorCaverna(String[][] cave) {
+		caverna = new Caverna();
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (c != 3)
@@ -51,7 +56,7 @@ public class MontadorCaverna {
 		}
 	}
 	
-	public boolean CavernaVerificaçao(String[][] cave) {
+	public void CavernaVerificacao(String[][] cave) {
 		for (int l = 0; l < cave.length; l++) {
 	        for (int c = 0; c < cave[l].length; c++) {
 	        	if (cave[l][c].equals("P"))
@@ -66,9 +71,23 @@ public class MontadorCaverna {
 	        }
 		if (nBuraco == 3 || nBuraco == 2 && nWumpus == 1 && nHeroi == 1 && nOuro == 1 != true) {
 			PrintUtils.displayMessage("Caverna invalida");
+<<<<<<< HEAD
 			return false;
 		}
 		return true;
+=======
+			System.exit(1);
+		}
 	}
+
+	public Caverna getCaverna() {
+		return caverna;
+>>>>>>> origin/mikio
+	}
+	
+	public Heroi getHeroi() {
+		return h;
+	}
+	
 	
 }
